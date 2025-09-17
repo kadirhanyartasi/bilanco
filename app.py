@@ -1,6 +1,5 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import os
 
 # Sayfa konfigürasyonu
 st.set_page_config(

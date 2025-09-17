@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilanco Analiz Sistemi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sol Sidebar - Hisse Listesi -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-chart-line"></i> Bilanco Analiz</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Hisse ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="stock-list" id="stockList">
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-up"></i>
+                    <div class="scroll-line"></div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <!-- Hisse listesi JavaScript ile doldurulacak -->
+            </div>
+        </div>
+
+        <!-- Ana İçerik Alanı -->
+        <div class="main-content">
+            <!-- Üst Navigasyon -->
+            <div class="top-nav">
+                <div class="selected-stock">
+                    <h1 id="selectedStockName">Bilanco Analiz Sistemi</h1>
+                    <span id="selectedStockCode">Sol taraftan bir hisse seçin</span>
+                </div>
+                <div class="nav-tabs">
+                    <button class="tab-btn active" data-tab="info">
+                        <i class="fas fa-info-circle"></i> Genel Bilgi
+                    </button>
+                    <button class="tab-btn" data-tab="analysis">
+                        <i class="fas fa-chart-bar"></i> Veri Analizi
+                    </button>
+                    <button class="tab-btn" data-tab="reporting">
+                        <i class="fas fa-file-alt"></i> Raporlama
+                    </button>
+                    <button class="tab-btn" data-tab="consolidation">
+                        <i class="fas fa-layer-group"></i> Veri Birleştirme
+                    </button>
+                    <button class="tab-btn" data-tab="calculations">
+                        <i class="fas fa-calculator"></i> Hesaplamalar
+                    </button>
+                    <button class="tab-btn" data-tab="visualization">
+                        <i class="fas fa-chart-pie"></i> Görselleştirme
+                    </button>
+                </div>
+            </div>
+
+            <!-- İçerik Alanları -->
+            <div class="content-area">
+                <!-- Genel Bilgi Sayfası -->
+                <div class="tab-content active" id="info">
+                    <div class="page-header">
+                        <h2><i class="fas fa-info-circle"></i> Bilanco Analiz Sistemi</h2>
+                        <p>Türkiye'deki halka açık şirketlerin finansal verilerinin detaylı analizi</p>
+                    </div>
+                    
+                    <div class="info-content">
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3>Sistem Amacı</h3>
+                                <p>Bu sistem, Türkiye'deki halka açık şirketlerin bilanço verilerini analiz ederek finansal performanslarını değerlendirmenizi sağlar. 150+ şirketin detaylı finansal analizlerine erişebilirsiniz.</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h3>Veri Kaynağı</h3>
+                                <p>Finansal veriler, şirketlerin resmi bilanço raporlarından alınmaktadır. Veriler düzenli olarak güncellenir ve doğruluğu kontrol edilir.</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Analiz Özellikleri</h3>
+                                <p>Dönen varlıklar, nakit durumu, stok analizi, alacaklar ve finansal oranlar gibi kapsamlı analizler sunulmaktadır.</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h3>Kullanım</h3>
+                                <p>Sol taraftaki listeden bir hisse seçin ve farklı analiz sekmelerini kullanarak detaylı finansal bilgilere ulaşın.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="features-section">
+                            <h3><i class="fas fa-star"></i> Özellikler</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-search"></i>
+                                    <span>Hisse Arama</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Grafik Analizi</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-calculator"></i>
+                                    <span>Finansal Oranlar</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-table"></i>
+                                    <span>Detaylı Tablolar</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Mobil Uyumlu</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-download"></i>
+                                    <span>Rapor İndirme</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="getting-started">
+                            <h3><i class="fas fa-play-circle"></i> Nasıl Başlanır?</h3>
+                            <div class="steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Hisse Seçin</h4>
+                                        <p>Sol taraftaki listeden analiz etmek istediğiniz şirketi seçin</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Analiz Sekmesini Seçin</h4>
+                                        <p>Veri Analizi, Raporlama, Hesaplamalar veya Görselleştirme sekmelerinden birini seçin</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Verileri İnceleyin</h4>
+                                        <p>Grafikler, tablolar ve finansal oranları detaylı olarak inceleyin</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Veri Analizi Sayfası -->
+                <div class="tab-content" id="analysis">
+                    <div class="page-header">
+                        <h2><i class="fas fa-chart-bar"></i> Veri Analizi</h2>
+                        <p>Seçilen hissenin finansal verilerinin detaylı analizi</p>
+                    </div>
+                    <div class="analysis-grid">
+                        <div class="card">
+                            <h3>Dönen Varlıklar Trendi</h3>
+                            <canvas id="currentAssetsChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Nakit Durumu</h3>
+                            <canvas id="cashChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Stok Analizi</h3>
+                            <canvas id="inventoryChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Alacaklar</h3>
+                            <canvas id="receivablesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raporlama Sayfası -->
+                <div class="tab-content" id="reporting">
+                    <div class="page-header">
+                        <h2><i class="fas fa-file-alt"></i> Raporlama</h2>
+                        <p>Finansal raporlar ve özet bilgiler</p>
+                    </div>
+                    <div class="reporting-content">
+                        <div class="summary-cards">
+                            <div class="summary-card">
+                                <h3>Toplam Varlıklar</h3>
+                                <div class="value" id="totalAssets">-</div>
+                                <div class="change" id="assetsChange">-</div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Dönen Varlıklar</h3>
+                                <div class="value" id="currentAssets">-</div>
+                                <div class="change" id="currentAssetsChange">-</div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Nakit</h3>
+                                <div class="value" id="cash">-</div>
+                                <div class="change" id="cashChange">-</div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Stoklar</h3>
+                                <div class="value" id="inventory">-</div>
+                                <div class="change" id="inventoryChange">-</div>
+                            </div>
+                        </div>
+                        <div class="detailed-table">
+                            <h3>Detaylı Bilanço Tablosu</h3>
+                            <div class="table-container">
+                                <table id="balanceSheetTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Kalem</th>
+                                            <th>2025/6</th>
+                                            <th>2025/3</th>
+                                            <th>2024/12</th>
+                                            <th>2024/9</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Tablo içeriği JavaScript ile doldurulacak -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Veri Birleştirme Sayfası -->
+                <div class="tab-content" id="consolidation">
+                    <div class="page-header">
+                        <h2><i class="fas fa-layer-group"></i> Veri Birleştirme</h2>
+                        <p>Farklı dönemlerin karşılaştırmalı analizi</p>
+                    </div>
+                    <div class="consolidation-content">
+                        <div class="comparison-chart">
+                            <h3>Dönemsel Karşılaştırma</h3>
+                            <canvas id="periodComparisonChart"></canvas>
+                        </div>
+                        <div class="consolidation-table">
+                            <h3>Birleştirilmiş Veri Tablosu</h3>
+                            <div class="table-container">
+                                <table id="consolidatedTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Dönem</th>
+                                            <th>Dönen Varlıklar</th>
+                                            <th>Nakit</th>
+                                            <th>Stoklar</th>
+                                            <th>Alacaklar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Tablo içeriği JavaScript ile doldurulacak -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hesaplamalar Sayfası -->
+                <div class="tab-content" id="calculations">
+                    <div class="page-header">
+                        <h2><i class="fas fa-calculator"></i> Hesaplamalar</h2>
+                        <p>Finansal oranlar ve hesaplamalar</p>
+                    </div>
+                    <div class="calculations-content">
+                        <div class="ratios-grid">
+                            <div class="ratio-card">
+                                <h3>Likidite Oranları</h3>
+                                <div class="ratio-item">
+                                    <span>Cari Oran</span>
+                                    <span id="currentRatio">-</span>
+                                </div>
+                                <div class="ratio-item">
+                                    <span>Asit Test Oranı</span>
+                                    <span id="quickRatio">-</span>
+                                </div>
+                            </div>
+                            <div class="ratio-card">
+                                <h3>Finansal Yapı</h3>
+                                <div class="ratio-item">
+                                    <span>Özkaynak Oranı</span>
+                                    <span id="equityRatio">-</span>
+                                </div>
+                                <div class="ratio-item">
+                                    <span>Borç/Özkaynak</span>
+                                    <span id="debtEquityRatio">-</span>
+                                </div>
+                            </div>
+                            <div class="ratio-card">
+                                <h3>Karlılık</h3>
+                                <div class="ratio-item">
+                                    <span>ROA</span>
+                                    <span id="roa">-</span>
+                                </div>
+                                <div class="ratio-item">
+                                    <span>ROE</span>
+                                    <span id="roe">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trend-analysis">
+                            <h3>Trend Analizi</h3>
+                            <canvas id="trendChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Görselleştirme Sayfası -->
+                <div class="tab-content" id="visualization">
+                    <div class="page-header">
+                        <h2><i class="fas fa-chart-pie"></i> Görselleştirme</h2>
+                        <p>İnteraktif grafikler ve görsel analizler</p>
+                    </div>
+                    <div class="visualization-content">
+                        <div class="chart-grid">
+                            <div class="chart-card">
+                                <h3>Varlık Dağılımı</h3>
+                                <canvas id="assetDistributionChart"></canvas>
+                            </div>
+                            <div class="chart-card">
+                                <h3>Dönemsel Performans</h3>
+                                <canvas id="performanceChart"></canvas>
+                            </div>
+                            <div class="chart-card">
+                                <h3>Finansal Sağlık Skoru</h3>
+                                <canvas id="healthScoreChart"></canvas>
+                            </div>
+                            <div class="chart-card">
+                                <h3>Risk Analizi</h3>
+                                <canvas id="riskAnalysisChart"></canvas>
+                            </div>
+                            <div class="chart-card">
+                                <h3>Karlılık Analizi</h3>
+                                <canvas id="profitabilityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

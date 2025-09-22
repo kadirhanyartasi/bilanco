@@ -74,6 +74,120 @@ def create_streamlit_html():
             footer[data-testid="stFooter"] {{
                 display: none !important;
             }}
+            
+            /* Mobil optimizasyonları */
+            @media (max-width: 768px) {{
+                .container {{
+                    flex-direction: column !important;
+                }}
+                
+                .sidebar {{
+                    width: 100% !important;
+                    height: auto !important;
+                    max-height: 300px !important;
+                    position: sticky !important;
+                    top: 0 !important;
+                    z-index: 100 !important;
+                    left: 0 !important;
+                }}
+                
+                .main-content {{
+                    margin-left: 0 !important;
+                    width: 100% !important;
+                }}
+                
+                .stock-list {{
+                    max-height: 200px !important;
+                    height: 200px !important;
+                }}
+                
+                .nav-tabs {{
+                    flex-wrap: wrap !important;
+                    justify-content: center !important;
+                }}
+                
+                .tab-btn {{
+                    padding: 8px 12px !important;
+                    font-size: 12px !important;
+                    min-height: 40px !important;
+                }}
+                
+                .tab-btn i {{
+                    display: none !important;
+                }}
+                
+                .analysis-grid, .summary-cards, .ratios-grid, .chart-grid {{
+                    grid-template-columns: 1fr !important;
+                }}
+                
+                .card, .summary-card, .ratio-card, .chart-card {{
+                    padding: 15px !important;
+                }}
+                
+                canvas {{
+                    height: 200px !important;
+                    max-height: 200px !important;
+                }}
+                
+                .selected-stock h1 {{
+                    font-size: 1.3rem !important;
+                }}
+                
+                .content-area {{
+                    padding: 15px !important;
+                }}
+                
+                .top-nav {{
+                    padding: 10px 15px !important;
+                }}
+            }}
+            
+            @media (max-width: 480px) {{
+                .sidebar {{
+                    max-height: 250px !important;
+                }}
+                
+                .stock-list {{
+                    max-height: 180px !important;
+                    height: 180px !important;
+                }}
+                
+                .stock-item {{
+                    padding: 12px 15px !important;
+                    min-height: 40px !important;
+                }}
+                
+                .tab-btn {{
+                    padding: 10px 8px !important;
+                    font-size: 11px !important;
+                    min-width: 60px !important;
+                }}
+                
+                .card, .summary-card, .ratio-card, .chart-card {{
+                    padding: 12px !important;
+                }}
+                
+                .summary-card .value {{
+                    font-size: 1.3rem !important;
+                }}
+                
+                canvas {{
+                    height: 180px !important;
+                    max-height: 180px !important;
+                }}
+                
+                .content-area {{
+                    padding: 10px !important;
+                }}
+                
+                .top-nav {{
+                    padding: 8px 10px !important;
+                }}
+                
+                .selected-stock h1 {{
+                    font-size: 1.1rem !important;
+                }}
+            }}
         </style>
     </head>
     <body>
@@ -95,45 +209,21 @@ def main():
     # HTML içeriğini oluştur
     html_content = create_streamlit_html()
     
-    # HTML'i Streamlit'e göm
+    # HTML'i Streamlit'e göm - Mobil için dinamik yükseklik
     components.html(
         html_content,
-        height=800,
+        height=700,  # Mobil için optimize edilmiş yükseklik
         scrolling=True
     )
     
-    # Streamlit sidebar'da bilgi
-    with st.sidebar:
-        st.title("📊 Bilanco Analiz Sistemi")
-        st.markdown("""
-        ### 🎯 Özellikler
-        - **150+ Hisse Analizi**
-        - **Gerçek Finansal Veriler**
-        - **İnteraktif Grafikler**
-        - **Responsive Tasarım**
-        - **Modern UI/UX**
-        
-        ### 🚀 Kullanım
-        1. Sol taraftan hisse seçin
-        2. Analiz türünü belirleyin
-        3. Grafikleri inceleyin
-        
-        ### 📊 Analiz Türleri
-        - **Genel Bilgi**: Sistem hakkında
-        - **Veri Analizi**: Finansal grafikler
-        - **Raporlama**: Özet raporlar
-        - **Hesaplamalar**: Finansal oranlar
-        - **Görselleştirme**: İnteraktif grafikler
-        """)
-        
-        st.markdown("---")
-        st.markdown("""
-        ### 🔧 Teknik Detaylar
-        - **Platform**: Streamlit + HTML/CSS/JS
-        - **Grafikler**: Chart.js
-        - **Veriler**: Gömülü finansal veriler
-        - **Tasarım**: Modern responsive
-        """)
+    # Sidebar'ı tamamen gizle
+    st.markdown("""
+    <style>
+    .css-1d391kg {{
+        display: none !important;
+    }}
+    </style>
+    """, unsafe_allow_html=True)
 
 # Uygulamayı çalıştır
 if __name__ == "__main__":

@@ -474,48 +474,58 @@ canvas {
     color: #2c3e50;
 }
 
-/* Responsive Tasarım */
+/* Responsive Tasarım - Mobil Optimizasyonu */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column;
+        flex-direction: column !important;
     }
     
     .sidebar {
-        width: 100%;
-        height: auto;
-        max-height: 350px;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        left: 0;
+        width: 100% !important;
+        height: auto !important;
+        max-height: 300px !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 100 !important;
+        left: 0 !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .sidebar-header {
+        padding: 15px !important;
+    }
+    
+    .sidebar-header h2 {
+        font-size: 1.2rem !important;
+        margin-bottom: 10px !important;
     }
     
     .main-content {
-        margin-left: 0;
-        width: 100%;
+        margin-left: 0 !important;
+        width: 100% !important;
     }
     
     .stock-list {
-        max-height: 280px;
-        height: 280px;
+        max-height: 200px !important;
+        height: 200px !important;
         scrollbar-width: thin;
         scrollbar-color: #3498db #f1f1f1;
     }
     
     .stock-list::-webkit-scrollbar {
-        width: 10px;
+        width: 8px;
     }
     
     .stock-list::-webkit-scrollbar-track {
         background: #f8f9fa;
         border-radius: 10px;
-        border: 2px solid #e0e0e0;
+        border: 1px solid #e0e0e0;
     }
     
     .stock-list::-webkit-scrollbar-thumb {
         background: linear-gradient(135deg, #3498db, #2980b9);
         border-radius: 10px;
-        border: 2px solid #2980b9;
+        border: 1px solid #2980b9;
     }
     
     .stock-list::-webkit-scrollbar-thumb:hover {
@@ -523,94 +533,236 @@ canvas {
         transform: scale(1.05);
     }
     
-    .main-content {
-        width: 100%;
-    }
-    
     .top-nav {
-        padding: 15px 20px;
+        padding: 10px 15px !important;
     }
     
     .content-area {
-        padding: 20px;
+        padding: 15px !important;
     }
     
     .nav-tabs {
-        justify-content: center;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 5px !important;
     }
     
     .tab-btn {
-        padding: 10px 15px;
-        font-size: 14px;
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+        min-height: 40px !important;
+        flex: 1 !important;
+        min-width: 80px !important;
+    }
+    
+    .tab-btn i {
+        display: none !important;
     }
     
     .analysis-grid, .summary-cards, .ratios-grid, .chart-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
     }
     
     .selected-stock h1 {
-        font-size: 1.5rem;
+        font-size: 1.3rem !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .selected-stock span {
+        font-size: 0.9rem !important;
+    }
+    
+    .card, .summary-card, .ratio-card, .chart-card {
+        padding: 15px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .card h3, .summary-card h3, .ratio-card h3, .chart-card h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 15px !important;
+    }
+    
+    canvas {
+        height: 200px !important;
+        max-height: 200px !important;
+    }
+    
+    .page-header h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    .page-header p {
+        font-size: 0.9rem !important;
+    }
+    
+    .table-container {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    table {
+        min-width: 600px !important;
+    }
+    
+    th, td {
+        padding: 10px 8px !important;
+        font-size: 0.9rem !important;
     }
 }
 
 @media (max-width: 480px) {
     .sidebar {
-        max-height: 250px;
+        max-height: 250px !important;
+    }
+    
+    .sidebar-header {
+        padding: 10px !important;
+    }
+    
+    .sidebar-header h2 {
+        font-size: 1.1rem !important;
     }
     
     .stock-list {
-        max-height: 200px;
-        height: 200px;
+        max-height: 180px !important;
+        height: 180px !important;
     }
     
     .stock-item {
-        padding: 16px 20px;
-        min-height: 44px;
+        padding: 12px 15px !important;
+        min-height: 40px !important;
+        font-size: 0.9rem !important;
     }
     
     .tab-btn {
-        padding: 12px 16px;
-        font-size: 12px;
-        min-height: 44px;
-        min-width: 44px;
+        padding: 8px 6px !important;
+        font-size: 10px !important;
+        min-height: 36px !important;
+        min-width: 50px !important;
     }
     
     .tab-btn i {
-        display: none;
+        display: none !important;
     }
     
     .card, .summary-card, .ratio-card, .chart-card {
-        padding: 20px;
+        padding: 12px !important;
+        margin-bottom: 10px !important;
     }
     
     .summary-card .value {
-        font-size: 1.5rem;
+        font-size: 1.3rem !important;
+    }
+    
+    .card h3, .summary-card h3, .ratio-card h3, .chart-card h3 {
+        font-size: 1rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    canvas {
+        height: 160px !important;
+        max-height: 160px !important;
+    }
+    
+    .content-area {
+        padding: 8px !important;
+    }
+    
+    .top-nav {
+        padding: 8px 10px !important;
+    }
+    
+    .selected-stock h1 {
+        font-size: 1.1rem !important;
+    }
+    
+    .selected-stock span {
+        font-size: 0.8rem !important;
+    }
+    
+    .page-header h2 {
+        font-size: 1.2rem !important;
+    }
+    
+    .page-header p {
+        font-size: 0.8rem !important;
     }
     
     .scroll-indicator {
         opacity: 1 !important;
-        right: 10px;
+        right: 8px !important;
+        padding: 6px 3px !important;
     }
     
     .scroll-indicator i {
-        font-size: 16px;
+        font-size: 14px !important;
+    }
+    
+    .scroll-indicator .scroll-line {
+        width: 3px !important;
+        height: 20px !important;
     }
     
     .info-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    .info-card {
+        padding: 20px !important;
+    }
+    
+    .info-icon {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.5rem !important;
     }
     
     .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .feature-item {
+        padding: 15px !important;
+    }
+    
+    .feature-item i {
+        font-size: 1.5rem !important;
     }
     
     .step {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 15px !important;
     }
     
-    .step:hover {
-        transform: translateY(-2px);
+    .step-number {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1rem !important;
+    }
+    
+    .step-content h4 {
+        font-size: 1rem !important;
+    }
+    
+    .step-content p {
+        font-size: 0.9rem !important;
+    }
+    
+    .table-container {
+        border-radius: 8px !important;
+    }
+    
+    table {
+        min-width: 500px !important;
+    }
+    
+    th, td {
+        padding: 8px 6px !important;
+        font-size: 0.8rem !important;
     }
 }
 
